@@ -20,6 +20,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/order', async (req, res) => {
+  const menuItems = await db.collection('menu').find().toArray();
+  
+})
+
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
