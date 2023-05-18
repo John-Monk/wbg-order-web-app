@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <form action="/order" method="POST">
+      <input name="area" type="text" value="<%= area %>">
+      <ul>
+        <% for(let i = 0; i < items.length; i++){ %>
+        <li>
+          <h3><%= items[i].name %> - <span><%= items[i].price %></span></h3>
+          <input name="<%= items[i].name %>" type="number" class="quantityInput" value="0" min="0" data-item-id="<%= items[i].name %>">
+          <input name="notes" type="text">
+        </li>
+        <% } %>
+      </ul>
+      <button type="submit">Submit Order</button>
+    </form>
+  </body>
 </html>
