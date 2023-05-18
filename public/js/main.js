@@ -11,7 +11,13 @@ const formSubmit = form.addEventListener('submit', (e) => {
             delete data[item]
         }
     }
-    console.log(data)
 
+    fetch('/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
 
 })
