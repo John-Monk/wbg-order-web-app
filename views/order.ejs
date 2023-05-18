@@ -7,21 +7,23 @@
     <title>Order</title>
   </head>
   <body>
-    <form action="/order" method="POST">
-      <input name="location" type="hidden" value="<%= location %>">
-      <label for="name">Name</label>
-      <input id="name" type="name" type="text" placeholder="Name">
-      <ul>
-        <% for(let i = 0; i < items.length; i++){ %>
-        <li>
-          <h3><%= items[i].name %> - <span><%= items[i].price %></span></h3>
-          <input name="<%= items[i].name %>" type="number" class="quantityInput" value="0" min="0" data-item-id="<%= items[i].name %>">
-          <label for="notes">Notes</label>
-          <textarea id="notes" name="notes" type="text"></textarea>
-        </li>
-        <% } %>
-      </ul>
-      <button type="submit">Submit Order</button>
-    </form>
+    <form id="orderForm">
+        <input name="location" type="hidden" value="<%= location %>">
+        <label for="name" >Name</label>
+        <input name="name" id="name" type="name" type="text" placeholder="Name">
+        <ul>
+          <% for(let i = 0; i < items.length; i++){ %>
+          <li>
+            <h3><%= items[i].name %> - <span><%= items[i].price %></span></h3>
+            <input name="<%= items[i].name %>" type="number" value="0" min="0">
+            <label for="<%=items[i].name%>-notes">Notes</label>
+          </li>
+          <% } %>
+        </ul>
+        <label for="notes">order notes</label>
+        <textarea id="notes" name="notes" type="text"></textarea>
+        <button type="submit">Submit Order</button>
+        </form> 
+    <script src="/js/main.js"></script>
   </body>
 </html>
