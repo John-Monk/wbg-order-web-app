@@ -32,8 +32,7 @@ app.get('/order/:id', async (req, res) => {
 })
 
 app.post('/order', async (req, res) => {
-  // db.collection('orders').insertOne({item: req.body.menuItem})
-  console.log(req.body)
+  db.collection('orders').insertOne(req.body)
 })
 
 app.listen(process.env.PORT || PORT, () => {
